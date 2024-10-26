@@ -214,7 +214,15 @@ footer {
         transform: rotate(-45deg) translateY(-5px) ;
     }
 
+    main section .bannerInformation div:nth-child(4) {  
+        
+    }
+
     footer {
-        margin: 0;
+        margin: 20px 0 0 0;
+    }
+
+    body {
+        overflow-y: auto;
     }
 }
