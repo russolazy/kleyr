@@ -1,0 +1,237 @@
+:root {
+    --red: #FF6969;
+    --gray: #363636;
+}   
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Judson';
+    text-decoration: none;
+    list-style: none;
+    color: var(--gray);
+}
+
+body {
+    overflow-x: hidden;
+    height: 100vh;
+    width: 100%;
+    max-width: 1000px;
+    /* border: 1px solid red; */
+    margin: 20px auto;
+
+}
+
+.bg {
+   background-color: rgb(255, 255, 255);
+   height: 600px;
+   width: 100%;
+   clip-path: polygon(0 0, 100% 0%, 100% 24%, 0 80%);
+   position: absolute;
+   left: 0;
+   top: 0;
+   overflow: hidden;
+   z-index: -1;
+}
+
+.bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+/* Left nav */
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    padding: 0 1em;
+}
+header nav .menu {
+    display: none;
+}
+
+header nav .menu div {
+    height: 2px;
+    width: 30px;
+    margin: 5px 0;
+
+    background-color: var(--gray);
+}
+
+header nav .leftNav h3 {
+    font-size: 32px;
+}
+
+header nav .leftNav h3 span:nth-child(1){
+    color: var(--gray);
+}
+
+header nav .leftNav h3 span:nth-child(2){
+    color: var(--red);
+}
+
+/* Right nav */
+header nav .rightNav ul{
+    display: flex;
+    gap: 4em;
+    justify-content: center;
+    align-items: center;
+}
+
+
+header nav .rightNav ul li a:hover {
+    border-bottom: 2px solid var(--red);
+}
+
+header nav .rightNav ul li .active {
+    border-bottom: 2px solid var(--red);
+}
+
+/* Maincss */
+
+main {
+    margin-top: 10px;
+}
+
+main section {
+    padding: 0 1em;
+    /* border: 1px solid red; */
+}
+
+main section h2 {
+    margin: 20px 0;
+}
+
+main section .grid-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 100px;
+    column-gap: 5px;
+    row-gap: 5px;
+}
+
+main section .grid-container div {
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+main section .grid-container div .title {
+    position: absolute;
+    left: 50%;
+    top: 70%;
+    transform: translate(-50%, -50%);
+    transition: all .3s ease-in;
+    opacity: 0;
+}
+
+main section .grid-container div .title h3 {
+    color: white;
+}
+
+main section .grid-container div:hover .title {
+    top: 50%;
+    opacity: 1;
+   
+}
+
+main section .grid-container div img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: all .5s ease-in-out;
+}
+
+main section .grid-container div:hover img{
+    transform: scale(1.1);
+    opacity: .8;
+}
+
+main section .grid-container div:nth-child(1) {
+    grid-column: span 4;
+    grid-row: span 2;
+}
+
+main section .grid-container div:nth-child(2) {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+main section .grid-container div:nth-child(3) {
+    grid-column: span 2;
+    grid-row: span 4;
+}
+
+main section .grid-container div:nth-child(4) {
+    grid-column: span 4;
+    grid-row: span 2;
+}
+
+main section .grid-container div:nth-child(5) {
+    grid-column: span 3;
+    grid-row: span 2;
+}
+
+main section .grid-container div:nth-child(6) {
+    grid-column: span 1;
+    grid-row: span 2;
+}
+
+@media (max-width: 730px) {
+
+    header nav .rightNav {
+        display: none;
+    }
+
+    header nav .menu {
+        display: block;
+       
+    }
+
+    header nav .menu div {
+        transition: all .5s ease-in-out;
+    }
+
+    header nav .menu:hover div:nth-child(1) {
+        transform: rotate(45deg) translateY(5px) ;
+    }
+
+    header nav .menu:hover div:nth-child(2) {
+        transform: rotate(-45deg) translateY(-5px) ;
+    }
+}
+
+@media (max-width: 500px) {
+    main section .grid-container div:nth-child(1) {
+        grid-column: span 4;
+        grid-row: span 2;
+    }
+    
+    main section .grid-container div:nth-child(2) {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+    
+    main section .grid-container div:nth-child(3) {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+    
+    main section .grid-container div:nth-child(4) {
+        grid-column: span 4;
+        grid-row: span 2;
+    }
+    
+    main section .grid-container div:nth-child(5) {
+        grid-column: span 4;
+        grid-row: span 2;
+    }
+    
+    main section .grid-container div:nth-child(6) {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+}

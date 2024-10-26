@@ -1,0 +1,220 @@
+:root {
+    --red: #FF6969;
+    --gray: #363636;
+}   
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Judson';
+    text-decoration: none;
+    list-style: none;
+    color: var(--gray);
+}
+
+body {
+    overflow: hidden;
+    height: 100vh;
+    width: 100%;
+    max-width: 1000px;
+    /* border: 1px solid red; */
+    margin: 20px auto;
+
+}
+
+.bg {
+   background-color: rgb(255, 255, 255);
+   height: 600px;
+   width: 100%;
+   clip-path: polygon(0 0, 100% 0%, 100% 24%, 0 80%);
+   position: absolute;
+   left: 0;
+   top: 0;
+   overflow: hidden;
+   z-index: -1;
+}
+
+.bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+/* Left nav */
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    padding: 0 1em;
+}
+header nav .menu {
+    display: none;
+}
+
+header nav .menu div {
+    height: 2px;
+    width: 30px;
+    margin: 5px 0;
+
+    background-color: var(--gray);
+}
+
+header nav .leftNav h3 {
+    font-size: 32px;
+}
+
+header nav .leftNav h3 span:nth-child(1){
+    color: var(--gray);
+}
+
+header nav .leftNav h3 span:nth-child(2){
+    color: var(--red);
+}
+
+/* Right nav */
+header nav .rightNav ul{
+    display: flex;
+    gap: 4em;
+    justify-content: center;
+    align-items: center;
+}
+
+
+header nav .rightNav ul li a:hover {
+    border-bottom: 2px solid var(--red);
+}
+
+/* Main css */
+
+main section {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    /* flex-wrap: wrap; */
+    /* border: 1px solid var(--red); */
+    margin: 50px 0 0 0;
+    height: auto;
+}
+
+main section .banner {
+    overflow: hidden;
+    /* border: 1px solid red; */
+    width: 40%;
+    height: auto;
+    height: 500px;
+    
+}
+
+
+main section .banner img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+main section .bannerInformation {
+    /* border: 1px solid red; */
+    width: 60%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+main section .bannerInformation div:nth-child(1) {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+main section .bannerInformation div:nth-child(2) {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+main section .bannerInformation div:nth-child(3) {
+  
+}
+
+main section .bannerInformation div:nth-child(4) {  
+    background-color: var(--red);
+    display: flex;
+    align-items: center;
+    color: white;   
+    font-size: 26px;
+    border-radius: 5px;
+    max-width: 200px;
+    margin: 20px 0 0 0;
+    padding: 0 0 0  20px;
+    position: relative; 
+    height: 50px;
+}
+
+main section .bannerInformation div:nth-child(4) span {
+    animation: moveArrow 5s linear infinite;
+    position: absolute;
+}
+
+@keyframes moveArrow {
+    0% {
+        left: 100px;
+    }
+    50% {
+        left: 140px;
+    }
+    100% {
+        left: 100px;
+    }
+}
+
+footer {
+    text-align: center;
+    margin-top: 100px;
+    color: var(--gray);
+}
+
+/* Queries */
+
+@media (max-width: 730px) {
+    main section {
+        display: block;
+    }
+
+    main section .banner, .bannerInformation {
+        margin: 0 auto;
+    }
+
+    main section .banner {
+        /* border: 1px solid red; */
+        width: 400px;
+        max-width: 400px;
+    }
+    
+    header nav .rightNav {
+        display: none;
+    }
+
+    header nav .menu {
+        display: block;
+       
+    }
+
+    header nav .menu div {
+        transition: all .5s ease-in-out;
+    }
+
+    header nav .menu:hover div:nth-child(1) {
+        transform: rotate(45deg) translateY(5px) ;
+    }
+
+    header nav .menu:hover div:nth-child(2) {
+        transform: rotate(-45deg) translateY(-5px) ;
+    }
+
+    footer {
+        margin: 0;
+    }
+}
